@@ -5,7 +5,7 @@ import './footer.scss';
 const Footer = () => {
     return(
         <footer>
-            <p class="assignment"> 
+            <p className="assignment"> 
                 <strong>Assignment:</strong>
                 <a target="_blank" rel="noopener noreferrer" href="https://www.theodinproject.com/courses/javascript/lessons/frameworks">
                     The Odin Project - Frameworks
