@@ -1,0 +1,35 @@
+@import 'variables';
+
+header{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    background-color: $color-dark;
+    color: $color-light;
+
+    span.react{ color: $color-main; }
+
+    h1{ margin: 0; }
+
+    .links{
+
+        a{
+            display: inline-flex;
+            align-items: center;
+            color: $color-main;
+            text-decoration: none;;
+            padding: 0 1rem;
+            border-right: 1px solid $color-light;
+
+            &:last-child{ border: 0px; }
+        
+            svg{
+                padding-right: 0.25rem;
+                color: $color-light;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
