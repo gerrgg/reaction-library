@@ -5,12 +5,13 @@ import './footer.scss';
 const Footer = () => {
     return(
         <footer>
-            <h4>Learning React</h4>
-            <p class="assignment"> Assignment:  
+            <p class="assignment"> 
+                <strong>Assignment:</strong>
                 <a target="_blank" rel="noopener noreferrer" href="https://www.theodinproject.com/courses/javascript/lessons/frameworks">
                     The Odin Project - Frameworks
                 </a>
             </p>
+            <p>For this assignment you’ll be recreating one of our previous assignments using your framework of choice.</p>
         </footer>
     )
 }
