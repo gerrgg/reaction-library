@@ -1,0 +1,21 @@
+@import 'variables';
+
+.book{
+    flex-basis: 15%;
+
+    text-align: center;
+
+    img{
+        max-width: 200px;
+        height: auto;
+    }
+
+    .summary{
+        display: none;
+    }
+
+    &:hover .summary{
+         display: block;
+    }
+
+}
