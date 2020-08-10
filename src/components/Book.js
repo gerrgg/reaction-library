@@ -5,7 +5,7 @@ class Book extends Component {
     render(){
         return (
             <div className="book">
-                <a href={this.props.book.website}>
+                <a target="_blank" rel="noopener noreferrer" href={this.props.book.website}>
                     <img src={this.props.book.src} alt={this.props.book.title} />
                     <h4>{this.props.book.title}</h4>
                 </a>
