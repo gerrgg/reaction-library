@@ -2,20 +2,42 @@
 
 .book{
     flex-basis: 15%;
-
     text-align: center;
 
     img{
-        max-width: 200px;
-        height: auto;
+        max-width: 75%;
+        height: 150px;
     }
 
-    .summary{
+    .details{
         display: none;
+
+        &:show{
+            display: block;
+        }
+    }
+    
+    .title{ margin: 0 }
+
+    .author{ margin-top: .5rem; }
+
+    p.actions{
+
+        display: flex;
+        justify-content: space-evenly;
+
+        svg{
+            color: rgba(0,0,0,0.5);
+            cursor: pointer;
+
+            &:hover{
+                color: #333;
+            }
+        }
+        
     }
 
-    &:hover .summary{
-         display: block;
-    }
+    &.read p.actions svg.fa-heart{ color: red }
 
 }
+
