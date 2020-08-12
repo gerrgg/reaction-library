@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 
-const BookSummary = ({ book, markFavorite, editMode }) => (
+const BookSummary = ({ book, markFavorite, editMode, handleDelete }) => (
 
     <div className="summary">
         <a target="_blank" rel="noopener noreferrer" href={book.website}>
@@ -30,7 +30,8 @@ const BookSummary = ({ book, markFavorite, editMode }) => (
             />
     
             <FontAwesomeIcon 
-                icon={faTimes} 
+                icon={faTimes}
+                onClick={handleDelete}
             />
 
         </p>

@@ -8,13 +8,17 @@ class Library extends Component {
     constructor(){
         super()
 
-        this.state = {
-            booksData: booksData
-        }
+        this.state = { booksData: booksData }
     }
+
     
     render(){
-        let myBooks = booksData.map(book => <Book key={book.id} book={book} />)
+        let myBooks = booksData.map( book => ( 
+            <Book 
+                key={book.id} 
+                book={book}
+            /> 
+        ) )
 
         
         return (

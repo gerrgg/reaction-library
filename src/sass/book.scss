@@ -1,43 +1,52 @@
 @import 'variables';
 
 .book{
+
     flex-basis: 15%;
     text-align: center;
 
+    .title{ margin: 0 }
+
+    .author{ margin-top: .5rem; }
+
+    
     img{
         max-width: 75%;
         height: 150px;
     }
-
+    
     .details{
         display: none;
-
+        
         &:show{
             display: block;
         }
     }
     
-    .title{ margin: 0 }
-
-    .author{ margin-top: .5rem; }
-
+    
     p.actions{
-
+        
         display: flex;
         justify-content: space-evenly;
-
-        svg{
-            color: rgba(0,0,0,0.5);
-            cursor: pointer;
-
-            &:hover{
-                color: #333;
-            }
-        }
-        
     }
-
+    
+    svg{
+        color: rgba(0,0,0,0.5);
+        cursor: pointer;
+        
+        &:hover{
+            color: #333;
+        }
+    }
+    
+    form svg {
+        margin-top: 1rem;
+        font-size: 2rem;
+        color: green
+    }
+    
     &.read p.actions svg.fa-heart{ color: red }
+    &.hide { display: none; }
 
 }
 
