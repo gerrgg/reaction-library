@@ -20,7 +20,7 @@ class Header extends Component {
                 </div>
                 <div className="links">
                     <a rel="noopener noreferrer" target="_blank" href="http://gerrg.com">{userIcon} GERRG.com</a>
-                    <a href="http://gerrg.com">{codeIcon} Source Code</a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://github.com/gerrgg/reaction-library">{codeIcon} Source Code</a>
                 </div>
             </header>
         )
