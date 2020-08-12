@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import BookForm from './EditForm'
 import BookSummary from './BookSummary'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTimes, faHeart, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 import '../sass/book.scss'
 
@@ -20,6 +19,19 @@ class Book extends Component {
 
         this.markFavorite = this.markFavorite.bind(this)
         this.editMode = this.editMode.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleChange( event ){
+        const { name, value } = event.target
+
+        this.setState( prevState => {
+            let newBook = { ...prevState.book }
+            newBook[name] = value
+
+            return { ...prevState, book: newBook }
+        } )
     }
 
 
@@ -39,6 +51,14 @@ class Book extends Component {
         })
     }
 
+    handleSubmit() {
+        console.log( 'click' )
+
+        this.setState( prevState => {
+            return { ...prevState, editMode: false }
+        })
+    }
+
 
     
     render() {
@@ -51,32 +71,62 @@ class Book extends Component {
 
                 { 
                     this.state.editMode ? 
-                    <BookForm book={this.state.book} /> : 
-                    <BookSummary book={this.state.book} /> 
+
+                    <Form 
+                        book={this.state.book}
+                        handleChange={this.handleChange}
+                        onClick={this.editMode}
+                    /> 
+                    : 
+                    <BookSummary 
+                        book={this.state.book}
+                        markFavorite={this.markFavorite}
+                        editMode={this.editMode}
+                    /> 
                 }
-
-                <p className="actions">
-
-                    <FontAwesomeIcon 
-                        icon={faHeart} 
-                        onClick={this.markFavorite} 
-                    />
-
-                    
-                    <FontAwesomeIcon
-                        icon={faEdit}
-                        onClick={ this.editMode }
-                    />
-
-                    <FontAwesomeIcon 
-                        icon={faTimes} 
-
-                    />
-                </p>
                 
             </div>
         );
     }
 }
+
+const Form = ({ book, handleChange, onClick }) => (
+
+    <form>
+
+        <label>Title</label>
+        <input 
+            type="text" 
+            name="title" 
+            placeholder="Title" 
+            value={book.title}
+            onChange={handleChange}
+        />
+
+        <label>Author</label>
+        <input 
+            type="text" 
+            name="author" 
+            placeholder="Author" 
+            value={book.author}
+            onChange={handleChange}
+        />
+
+        <label>Book Image URL</label>
+        <input 
+            type="url" 
+            name="src" 
+            placeholder="URL to book image" 
+            value={book.src}
+            onChange={handleChange}
+        />
+
+        <FontAwesomeIcon 
+            icon={faCheck}
+            onClick={onClick}
+        /> 
+
+    </form>
+);
 
 export default Book

@@ -1,26 +1,41 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class BookSummary extends Component {
-    constructor( props ){
-        super()
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'
 
-    }
 
-    render(){
-        return(
-            <div className="summary">
-                <a target="_blank" rel="noopener noreferrer" href={this.props.book.website}>
-                    <img src={this.props.book.src} alt={this.props.book.title} />
-                </a>
+const BookSummary = ({ book, markFavorite, editMode }) => (
 
-                <a target="_blank" rel="noopener noreferrer" href={this.props.book.website}>
-                    <h4 className="title">{this.props.book.title}</h4>
-                </a>
+    <div className="summary">
+        <a target="_blank" rel="noopener noreferrer" href={book.website}>
+            <img src={book.src} alt={book.title} />
+        </a>
+    
+        <a target="_blank" rel="noopener noreferrer" href={book.website}>
+            <h4 className="title">{book.title}</h4>
+        </a>
+    
+        <p className="author">{book.author}</p>
+    
+        <p className="actions">
+    
+            <FontAwesomeIcon 
+                icon={faHeart} 
+                onClick={markFavorite} 
+            />
+    
+            <FontAwesomeIcon
+                icon={faEdit}
+                onClick={ editMode }
+            />
+    
+            <FontAwesomeIcon 
+                icon={faTimes} 
+            />
 
-                <p className="author">{ this.props.book.author }</p>
-            </div>
-        )
-    }
-}
+        </p>
+    </div>
+);
+
 
 export default BookSummary
